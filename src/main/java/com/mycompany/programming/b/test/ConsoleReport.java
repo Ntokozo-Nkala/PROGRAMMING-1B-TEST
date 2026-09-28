@@ -6,7 +6,7 @@ package com.mycompany.programming.b.test;
 
 
 public class ConsoleReport{
-//THE ARRAYS STORING CITIES, SALES, CITY TOTALS
+//CITIES, SALES AND SALES TOTALS ARRAYS
             String[] cities = {"Cape Town","Port Elizabeth", "Pretoria"};
     int[][] sales = {{1000,2000,3000},
                          {2000,3000,4000},
@@ -14,54 +14,48 @@ public class ConsoleReport{
     int[] cityTotals = new int[3];
     
 
-
-    public void main(String[] args){
+//MAIN  CALL METHODS
+    public static void main(String[] args){
         ConsoleReport report = new ConsoleReport();
         report.consoleReport();
         report.salesReport();
-        report.totalSales();
         report.mostSales();
     }
-
-//DISPLAYS REPORT
+    
+    //DISPLAY REPORT
     public void consoleReport() {
         System.out.println();
         System.out.println("-----------------------------------------");
         System.out.println("GAMING CONSOLE REPORT");
         System.out.println("-----------------------------------------");
-         System.out.printf("%-18s %-s %-9s %-9s%n","", "PS5", "XBOX", "SWITCH");
+         System.out.printf("%-25s %-16s %-15s %-14s%n","", "PS5", "XBOX", "SWITCH");
          for (int i = 0; i < sales.length; i++){
-              System.out.printf("%-9s%n", cities[i]);
-              for(int x = 0; x < sales[i].length; x++){
-             System.out.printf("%-10d", sales[i][x]);
-              }
-              System.out.println();
+                          System.out.printf("%-25s%-16d%-15d%-14d%n",cities[i], sales[i][0], sales[i][1],sales[i][2]);
+            
          }
         
     }
            
-             //CONSOLE TOTALS
-            public void salesReport(){
+             //CALCULATES TOTALS FOR ECAH CITY
+    public void salesReport(){
          System.out.print("\n--------------------------------");
-        System.out.print("\nGAMING CONSOLE REPORT");
+        System.out.print("\nGAMING CONSOLESALE REPORT");
         System.out.print("\n--------------------------------");
-        for(int i =0 ; i < cities.length; i++){
-       System.out.print("\nTotal sales: " + totalSales());
-        System.out.print("\n--------------------------------");
+        System.out.print("\n");
+       int total = 0;
+        for(int i = 0; i < cities.length; i++){
+            
+            for( int x = 0; x < sales[i].length; x++){
+                total = total + sales[i][x]; 
+            }
+                    System.out.println(cities[i] + "            " + total);
         }
+        System.out.print("\n--------------------------------");
 
     }
-    //DISPLAY TOTAL SALES
-    public int totalSales(){
-        int total = 0;
-        for(int i = 0; i < sales.length; i++){
-            for( int x = 0; x < sales[i].length; x++){
-                total += sales[i][x]; 
-            }
-        }
-        return total;
-    }
     
+    
+    //DISPLAYS MOST SALES / MAXX
     public void  mostSales(){
 
         // Start with the first city's total
@@ -71,11 +65,15 @@ public class ConsoleReport{
         int maxCityIndex = 0;
 
         // Loop through all cities
-        for (int i = 0; i < sales.length; i++) {
+        for (int i = 0; i < cities.length; i++) {
+                        //NOW WE CALCULATE THE TOTAL OF EACH CITY 
+
+        cityTotals[i] = sales[i][0] + sales[i][1];
+
 
             if (cityTotals[i] > maxSales) {
 
-                // Update the highest accident total
+                // Update the highest total
                 maxSales = cityTotals[i];
 
                 // Update the index of the city
