@@ -6,7 +6,7 @@ package com.mycompany.programming.b.test;
 
 
 public class ConsoleReport{
-
+//THE ARRAYS STORING CITIES, SALES, CITY TOTALS
             String[] cities = {"Cape Town","Port Elizabeth", "Pretoria"};
     int[][] sales = {{1000,2000,3000},
                          {2000,3000,4000},
