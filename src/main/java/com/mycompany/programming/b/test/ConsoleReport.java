@@ -22,7 +22,8 @@ public class ConsoleReport{
         report.totalSales();
         report.mostSales();
     }
-    
+
+//DISPLAYS REPORT
     public void consoleReport() {
         System.out.println();
         System.out.println("-----------------------------------------");
@@ -40,15 +41,17 @@ public class ConsoleReport{
     }
            
              //CONSOLE TOTALS
-    public void salesReport(){
+            public void salesReport(){
          System.out.print("\n--------------------------------");
         System.out.print("\nGAMING CONSOLE REPORT");
         System.out.print("\n--------------------------------");
+        for(int i =0 ; i < cities.length; i++){
        System.out.print("\nTotal sales: " + totalSales());
         System.out.print("\n--------------------------------");
+        }
 
     }
-    
+    //DISPLAY TOTAL SALES
     public int totalSales(){
         int total = 0;
         for(int i = 0; i < sales.length; i++){
